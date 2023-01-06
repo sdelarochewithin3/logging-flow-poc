@@ -1,0 +1,38 @@
+version: '3.5'
+
+services:
+  datadog-agent:
+    container_name: datadog-agent
+    image: datadog/agent:latest
+    ports:
+      - 8126:8126
+    environment:
+      - DD_ENV
+      - DD_TAGS="env:${DD_ENV}"
+      - DD_LOGS_ENABLED=true
+      - DD_PROCESS_AGENT_ENABLED=true
+      - DD_DOGSTATSD_NON_LOCAL_TRAFFIC=true
+      - DD_APM_NON_LOCAL_TRAFFIC=true
+      - DD_APM_ENABLED=true
+      - DD_BIND_HOST=0.0.0.0
+      - DD_API_KEY
+      - DD_DD_URL
+      - DD_APM_DD_URL
+    volumes:
+    - /var/run/docker.sock:/var/run/docker.sock:ro
+    - /proc/:/host/proc/:ro
+    - /sys/fs/cgroup/:/host/sys/fs/cgroup:ro
+
+  api:
+    build:
+      context: .
+      dockerfile: ./apps/api/Dockerfile
+    container_name: api
+    environment:
+      - DD_ENV=dev
+      - DD_LOGS_INJECTION=true
+      - DD_AGENT_HOST=dd-agent
+      - DD_TRACE_ENABLED=true
+      - PORT=3001
+    ports:
+      - 3001:3001

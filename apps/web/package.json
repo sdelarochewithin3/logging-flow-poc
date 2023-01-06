@@ -1,0 +1,40 @@
+{
+  "private": true,
+  "name": "@disco/web",
+  "version": "1.0.0",
+  "main": "src/index.js",
+  "author": "within3.com",
+  "license": "MIT",
+  "eslintConfig": {
+    "extends": [
+      "react-app"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "scripts": {
+    "start:web": "react-scripts start",
+    "build:web": "react-scripts build",
+    "eject:web": "react-scripts eject"
+  },
+  "dependencies": {
+    "@datadog/browser-logs": "^4.29.0",
+    "@disco/logging": "workspace:^",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-scripts": "5.0.1",
+    "web-vitals": "^2.1.4",
+    "winston": "^3.8.2",
+    "winston-transport-browserconsole": "^1.0.5"
+  }
+}

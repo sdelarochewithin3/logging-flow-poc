@@ -1,0 +1,23 @@
+{
+  "compilerOptions": {
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "incremental": true,
+    "isolatedModules": true,
+    "lib": ["esnext", "DOM", "DOM.Iterable", "ES6", "ScriptHost", "ES2016.Array.Include"],
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "skipLibCheck": true,
+    "strict": true,
+    "noEmitOnError": true,
+    "useUnknownInCatchVariables": false,
+    "target": "ESNext",
+    "types": ["node"],
+    "useDefineForClassFields": true,
+    "jsx": "react-jsx"
+  },
+  "exclude": ["**/dist/**"],
+  "include": ["**/*.ts", "**/*.tsx"]
+}
